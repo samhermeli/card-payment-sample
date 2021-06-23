@@ -1,0 +1,16 @@
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+  //Este dato pre-configurado sirve para poder realizar un pago de prueba. 
+  //Cuando quieras realizar un pago real en producción, deberás reemplazarlo por el Public Key de tu cuenta disponible en https://www.mercadopago.cl/developers/panel
+  const mp = new MercadoPago('APP_USR-2918f4d8-63c5-4774-92d6-1f60f161b559');
+  const tokenizer = mp.tokenizer({
+      type: 'webpay',
+      email: '{{payerEmail}}',
+      totalAmount: {{amount}},
+      action: 'http://localhost:8080/process-payment'
+  });
+</script>
+
+<h1>Mercado Pago Webpay OneClick</h1>
+<p>{{payerEmail}} pagará con débito ${{amount}}</p>
+<button onclick="tokenizer.open()">Pagar ahora</button>

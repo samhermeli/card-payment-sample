@@ -1,0 +1,15 @@
+{
+  "name": "mp-webpay-oneclick-example-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
+    "mercadopago": "^1.5.8"
+  }
+}
