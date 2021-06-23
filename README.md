@@ -15,3 +15,5 @@
    1. Email: `test_user_75971242@testuser.com`
    2. Password: `qatest62`
 6. Navegue a http://localhost:8080 en su navegador y siga las instrucciones de pago
+
+> También puedes probar la experiencia en nuestro [live demo](https://cjs1w.sse.codesandbox.io). Recuerda que primero es necesario iniciar sesión con los datos del usuario pagador de prueba.
