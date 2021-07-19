@@ -1,16 +1,22 @@
 const express = require("express");
+const https = require('https');
 const app = express();
 const mercadopago = require("mercadopago");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://www.mercadopago.com/developers/panel
-mercadopago.configurations.setAccessToken("YOUR_ACCESS_TOKEN");
+mercadopago.configurations.setAccessToken("APP_USR-6255502893512254-070917-4a37a530e7d437b6ce717670b142202c-787997534");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("../../client"));
+app.use(express.static("client/"));
+
+const options = {
+	key: fs.readFileSync('localhost.key', 'utf8'),
+   cert: fs.readFileSync('localhost.crt', 'utf8')
+ };
 
 app.get("/", function (req, res) {
-  res.status(200).sendFile("index.html");
+  res.status(200).sendFile("/client/index.html");
 }); 
 
 app.post("/process_payment", (req, res) => {
@@ -44,6 +50,9 @@ app.post("/process_payment", (req, res) => {
     });
 });
 
-app.listen(8080, () => {
+/*app.listen(8080, () => {
   console.log("The server is now running on Port 8080");
-});
+});*/
+https.createServer(options, app).listen(8080, () => {
+	console.log("The server is now running on Port 8080");
+})

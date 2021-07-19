@@ -1,21 +1,15 @@
 # Card payment processing with Checkout API
 
-### This is a simple example of how you can accept credit card payments by integrating our [Checkout API](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-api/previous-requirements)
+## Using a NodeJS server with Express
 
-### In this repository you will find two main folders:
+### Requirements
+- Node v10 or higher
+- Read our [testing instructions](https://www.mercadopago.com/developers/en/guides/payments/api/testing)
+- Setup your credentials: 
+  - Public Key on client-side [`index.js`](https://github.com/mercadopago/card-payment-sample/tree/master/client/js/index.js#L2)
+  - Private Access Token on server-side [`server.js`](https://github.com/mercadopago/card-payment-sample/tree/master/server/node/server.js#L6)
 
-- `client`: 
-  
-    Basic implementation of a checkout and its payment form, complying with the necessary security requirements to collect sensitive user information.
-
-- `server`: 
-
-    Basic server-side implementation, serving client-side static resources and allowing to post collected information directly to our API and process a payment request. 
-
-<br>
-
-## How to run it
-
-Clone or [download](https://github.com/mercadopago/card-payment-sample/archive/master.zip) this project, move to the server implementation of your choice and follow its README instructions.
-
-If you are programming in a different language, we offer a client-side sample which will allow you to write your own server-side implementation using our [API Reference](https://www.mercadopago.com/developers/en/reference/payments/_payments/post/) as a guideline.
+### How to run it
+- npm install
+- npm run start
+- Navigate to http://localhost:8080 on your browser
