@@ -4,7 +4,7 @@ const mp = new MercadoPago('APP_USR-f3d7f40e-2d40-441e-bef0-4a8996b14129');
 function loadCardForm() {
     const productCost = document.getElementById('amount').value;
     const productDescription = document.getElementById('product-description').innerText;
-
+    console.log("Previo a llamar a cardForm");
     const cardForm = mp.cardForm({
         amount: productCost,
         autoMount: true,
@@ -118,6 +118,7 @@ function loadCardForm() {
 
 //Handle transitions
 document.getElementById('checkout-btn').addEventListener('click', function(){ 
+    console.log("Se gatilla el evento checkout-btn");
     $('.container__cart').fadeOut(500);
     setTimeout(() => { 
         loadCardForm();
