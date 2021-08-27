@@ -1,6 +1,13 @@
 //REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://www.mercadopago.com/developers/panel
-const mp = new MercadoPago('APP_USR-f3d7f40e-2d40-441e-bef0-4a8996b14129');
-
+const mp = new MercadoPago('APP_USR-2918f4d8-63c5-4774-92d6-1f60f161b559');
+const tokenizer = mp.tokenizer({
+    type: 'webpay',
+    email: 'test_user_75971242@testuser.com',
+    totalAmount: 10,
+    action: 'https://www.merchant.cl/process_payment?session_id={UUID}',
+    cancelURL: 'https://www.merchant.cl/previous-uri'
+  });
+console.log(tokenizer);
 function loadCardForm() {
     const productCost = document.getElementById('amount').value;
     const productDescription = document.getElementById('product-description').innerText;

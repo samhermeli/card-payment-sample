@@ -5,11 +5,37 @@ const app = express();
 const mercadopago = require("mercadopago");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://www.mercadopago.com/developers/panel
-mercadopago.configurations.setAccessToken("APP_USR-6255502893512254-070917-4a37a530e7d437b6ce717670b142202c-787997534");
+mercadopago.configurations.setAccessToken("APP_USR-7196632628144272-060913-746bdbb20b7c5665b99fac119662f174-772856875");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("client/"));
+
+payment_methods = mercadopago.get("/v1/payment_methods").then(response => console.log("Hola"))
+
+var payment_data_2 = {
+  transaction_amount: 100,
+  description: 'Título del producto',
+  payer: {
+  email: 'test_user_75971242@testuser.com',
+  entity_type: "individual"
+  },
+  transaction_details: {
+  financial_institution: "1234"
+  },
+  additional_info: {
+  ip_address: "127.0.0.1"
+  },
+  callback_url: "http://www.tu-sitio.com",
+  payment_method_id: "redcompra"
+  }
+
+mercadopago.payment.create(payment_data_2).then(function (data) {
+console.log(data);
+}).catch(function (error) {
+  console.log(error);
+});
+
 
 const options = {
 	key: fs.readFileSync('localhost.key', 'utf8'),
