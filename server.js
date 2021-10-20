@@ -1,10 +1,11 @@
 const express = require("express");
 const https = require('https');
+const fs = require('fs');
 const app = express();
 const mercadopago = require("mercadopago");
 
 //REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://www.mercadopago.com/developers/panel
-mercadopago.configurations.setAccessToken("APP_USR-6255502893512254-070917-4a37a530e7d437b6ce717670b142202c-787997534");
+mercadopago.configurations.setAccessToken("xxxxxxxxx");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
